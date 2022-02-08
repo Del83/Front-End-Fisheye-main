@@ -1,0 +1,6 @@
+- REVOIR LE CSS car .photograph-header est dans les 2 feuilles CSS
+
+
+
+VOIR POUR MAP le FILTRE
+

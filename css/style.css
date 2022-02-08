@@ -128,3 +128,32 @@ h1 {
   box-shadow: 4px 4px 8px #c4c4c4;
   object-fit: cover;
 }
+
+.photograph-galery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: stretch;
+  justify-content: space-between;
+  align-items: center;
+  margin: 100px;
+}
+
+.photograph-galery article img {
+  height: 300px;
+  width: 350px;
+  object-fit: cover;
+  border-radius: 5px;
+  object-position: center top;
+  transform: translateY(0px) scale(1);
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 3px rgb(0 0 0 / 10%);
+}
+
+.photograph-galery article h1 {
+  color: #911c1c;
+  font-size: 24px;
+  font-weight: normal;
+  margin-bottom: 0px;
+  line-height: 31px;
+}
