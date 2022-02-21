@@ -31,7 +31,7 @@ function photographerFactory(data) {
   }
 
   function getUserCardDOMPage() {
-    const articlePage = document.createElement("article");
+    const articlePage = document.createElement("section");
     const divProfil = document.createElement("div");
     const h1Page = document.createElement("h1");
     h1Page.textContent = name;
@@ -40,8 +40,8 @@ function photographerFactory(data) {
     const h3Page = document.createElement("h3");
     h3Page.textContent = tagline;
     const btnContact = document.createElement("button");
-    btnContact.classList.add("contact_button");
-    btnContact.setAttribute("onclick", "displayModal()");
+    btnContact.classList.add("contact-button");
+    btnContact.setAttribute("onclick", "openModal()");
     btnContact.textContent = "Contactez-moi";
     const imgPage = document.createElement("img");
     imgPage.setAttribute("src", picture);
@@ -54,6 +54,22 @@ function photographerFactory(data) {
     return articlePage;
   }
 
+  function getUserCounterDOM() {
+    const asideWidget = document.createElement("aside");
+    const counterWidget = document.createElement("div");
+    const h5Widget = document.createElement("h5");
+    h5Widget.textContent = price + "€/jour";
+    asideWidget.appendChild(counterWidget);
+    counterWidget.appendChild(h5Widget);
+    return asideWidget;
+  }
+
+  function getUserContactDOM() {
+    const contactName = document.createElement("span");
+    contactName.textContent = name;
+    return contactName;
+  }
+
   return {
     name,
     id,
@@ -64,5 +80,7 @@ function photographerFactory(data) {
     picture,
     getUserCardDOM,
     getUserCardDOMPage,
+    getUserCounterDOM,
+    getUserContactDOM,
   };
 }

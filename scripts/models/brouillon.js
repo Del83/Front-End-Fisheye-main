@@ -252,3 +252,386 @@ function getUserCardDOMPage() {
   articlePage.appendChild(h4Page);
   return articlePage;
 }
+
+
+
+//////////////:
+
+
+
+
+const photographerProfilDisplay = async () => {
+    await getPhotographers(); // on va chercher les données de la fetch
+    let params = new URL(document.location).searchParams;
+    let id = params.get("id");
+    const photographerModelPage = photographerPageFactory(photographers);
+    const userCardDOMPage = photographerModelPage.getUserCardDOMPage();
+    photographerProfilContainer.appendChild(userCardDOMPage);
+    console.log(id);
+  };
+
+
+
+  //////////////
+
+
+  async function photographerProfilDisplay(photographers) {
+    const photographerProfilContainer =
+      document.querySelector(".photograph-header");
+    await getPhotographers(); // on va chercher les données de la fetch
+    let params = new URL(document.location).searchParams;
+    let id = params.get("id");
+  
+    const photographerModelPage = photographerPageFactory(photographers);
+    const userCardDOMPage = photographerModelPage.getUserCardDOMPage();
+    photographerProfilContainer.appendChild(userCardDOMPage);
+    console.log(id);
+  }
+
+
+
+///////////////
+
+
+  const photographerProfilContainer =
+  document.querySelector(".photograph-header");
+
+const photographerProfilDisplay = async () => {
+  await getPhotographers(); // on va chercher les données de la fetch
+  let params = new URL(document.location).searchParams;
+  let id = params.get("id");
+  const photographerModelPage = photographerFactory(photographers);
+  const userCardDOMPage = photographerModelPage.getUserCardDOMPage();
+  photographerProfilContainer.appendChild(userCardDOMPage);
+  console.log(id);
+};
+
+async function initPage() {
+  // Récupère les datas des photographes
+  const { photographers } = await getPhotographers();
+  photographerProfilDisplay(photographers);
+}
+
+initPage();
+
+
+
+
+
+
+
+
+
+//////////////
+
+
+
+
+
+  function getUserCardDOM() {
+    const lien = document.createElement("a");
+    lien.setAttribute("href", `./photographer.html?id=` + id);
+    lien.classList.add(id);
+    const article = document.createElement("article");
+    const img = document.createElement("img");
+    img.setAttribute("src", picture);
+    const h2 = document.createElement("h2");
+    h2.textContent = name;
+    const h3 = document.createElement("h3");
+    h3.textContent = city + ", " + country;
+    const h4 = document.createElement("h4");
+    h4.textContent = tagline;
+    const h5 = document.createElement("h5");
+    h5.textContent = price + "€/jour";
+    article.appendChild(img);
+    article.appendChild(lien);
+    lien.appendChild(img);
+    article.appendChild(h2);
+    article.appendChild(h3);
+    article.appendChild(h4);
+    article.appendChild(h5);
+    return article;
+  }
+
+
+
+  const photographerProfilDisplay = async () => {
+    await getPhotographers(); // on va chercher les données de la fetch
+  
+    let params = new URL(document.location).searchParams;
+    let id = params.get("id");
+    const photographerModelPage = photographerFactory(photographers);
+    const userCardDOMPage = photographerModelPage.getUserCardDOMPage();
+    photographerProfilContainer.appendChild(userCardDOMPage);
+    console.log(id);
+  };
+
+
+/////////////////////////
+
+  async function photographerProfilDisplay(photographers) {
+    photographers.forEach((photographerId) => {
+      const photographerModelPage = photographerFactory(photographers);
+      const userCardDOMPage = photographerModelPage.getUserCardDOMPage();
+      photographerProfilContainer.appendChild(userCardDOMPage);
+      console.log(photographerId.name);
+    });
+  }
+  
+  async function initPage() {
+    // Récupère les datas des photographes
+    const { photographers } = await getPhotographers();
+    photographerProfilDisplay(photographers);
+  }
+  
+  initPage();
+
+
+
+
+  //////////////
+
+
+
+  const photographGalery = document.querySelector(".photograph-galery");
+  console.log(photographGalery);
+  
+  let params = new URL(document.location).searchParams;
+  let id = params.get("id");
+  
+  const photographGaleryDisplay = () => {
+    medias.forEach((media) => {
+      if (media.id == id) {
+        const photographerModelGalery = galeryFactory(media);
+        const userGalery = photographerModelGalery.getUserGaleryDOM();
+        photographGalery.appendChild(userGalery);
+      }
+    });
+  };
+  
+  async function initGalery() {
+    // Récupère les medias des photographes
+    const { medias } = await getMedias();
+    photographGaleryDisplay(medias);
+  }
+  
+  initGalery();
+
+
+
+
+//////////////
+
+let params = new URL(document.location).searchParams;
+let id = params.get("id");
+
+const photographGaleryDisplay = () => {
+  medias.forEach((media) => {
+    const photographerModelGalery = galeryFactory(media);
+    const userGalery = photographerModelGalery.getUserGaleryDOM();
+    photographGalery.appendChild(userGalery);
+  });
+};
+
+async function initGalery() {
+  // Récupère les medias des photographes
+  const { medias } = await getMedias();
+  photographGaleryDisplay(medias);
+}
+
+initGalery();
+
+
+///////////////
+
+
+const photographGaleryDisplay = () => {
+    medias.forEach((media) => {
+      if (media.id == id) {
+        const photographerModelGalery = galeryFactory(media);
+        const userGalery = photographerModelGalery.getUserGaleryDOM();
+        photographGalery.appendChild(userGalery);
+      }
+    });
+  };
+  
+  async function initGalery() {
+    // Récupère les medias des photographes
+    const { medias } = await getMedias();
+    photographGaleryDisplay(medias);
+  }
+  
+  initGalery();
+  
+
+
+/////////////////////////////
+
+
+  const getPhotographerMedias = () => {
+  
+  
+    personnalMedias = photographerMedias.map(media => ({ ...media, liked: "far" }));
+    ////////////////////////////////////////////////////////////////////////////////////
+    /////     CTRL IF LOCAL STORAGE     ////////////////////////////////////////////////
+    personnalMedias = personnalMedias.map(media => {
+        if (localStorage.getItem(`${media.id}_heart`) !== null) {
+            media.liked = localStorage.getItem(`${media.id}_heart`);
+            media.likes = parseInt(localStorage.getItem(`${media.id}_likes`));
+        }
+        return media;
+    });
+  
+  
+  
+  
+  
+  
+  const photographGaleryDisplay = () => {
+  let photographerMedias = medias.filter(media => media.photographerId == idGalery;
+  
+  
+    medias.forEach((media) => {
+      if (media.id == id) {
+        const photographerModelGalery = galeryFactory(media);
+        const userGalery = photographerModelGalery.getUserGaleryDOM();
+        photographGalery.appendChild(userGalery);
+      }
+    });
+  };
+  
+  async function initGalery() {
+    // Récupère les medias des photographes
+    const { medias } = await getMedias();
+    photographGaleryDisplay(medias);
+  }
+  
+  initGalery();
+  
+
+
+//////////////////////////
+
+
+
+let paramsGalery = new URL(document.location).searchParams;
+let idGalery = paramsGalery.get("id");
+console.log(idGalery);
+
+const photographGaleryDisplay = () => {
+  medias.forEach((media) => {
+    const photographerMedias = medias.filter(
+      (media) => media.photographerId == idGalery
+    );
+    console.log(photographerMedias);
+    if (photographerMedias == idGalery) {
+      const photographerModelGalery = galeryFactory(media);
+      const userGalery = photographerModelGalery.getUserGaleryDOM();
+      photographGalery.appendChild(userGalery);
+    }
+  });
+};
+
+async function initGalery() {
+  // Récupère les medias des photographes
+  const { medias } = await getMedias();
+  photographGaleryDisplay(medias);
+}
+
+initGalery();
+
+////////////
+
+const photographGaleryDisplay = () => {
+    const mediasFilter = medias.filter(
+      (media) => media.photographerId === parseInt(idGalery)
+    );
+    console.log(mediasFilter);
+    medias.forEach((media) => {
+      if (medias.filter((media) => media.photographerId == parseInt(idGalery))) {
+        const photographerModelGalery = galeryFactory(media);
+        const userGalery = photographerModelGalery.getUserGaleryDOM();
+        photographGalery.appendChild(userGalery);
+      }
+    });
+  };
+  
+  async function initGalery() {
+    // Récupère les medias des photographes
+    const { medias } = await getMedias();
+    photographGaleryDisplay(medias);
+  }
+  
+  initGalery();
+
+
+  /////////////
+
+  function galeryFactory(data) {
+    const { id, photographerId, title, image, video, likes, date, price } = data;
+  
+    let srcMedia = `./assets/sample_photos/${photographerId}/`;
+    if (image) {
+      srcMedia += image;
+    } else {
+      srcMedia += video;
+    }
+  
+    console.log();
+  
+    function getUserGaleryDOM() {
+      console.log(title);
+      const articleGalery = document.createElement("article");
+      const h1Page = document.createElement("h1");
+      if (image) {
+        const imgPhoto = document.createElement("img");
+        imgPhoto.setAttribute("src", srcMedia);
+        articleGalery.appendChild(imgPhoto);
+      } else {
+        const vidPhoto = document.createElement("video");
+        vidPhoto.setAttribute("type", "video/mp4");
+        vidPhoto.setAttribute("src", srcMedia);
+        vidPhoto.setAttribute("controls", null);
+        articleGalery.appendChild(vidPhoto);
+      }
+  
+      h1Page.textContent = title;
+      articleGalery.appendChild(h1Page);
+      return articleGalery;
+    }
+  
+    return {
+      id,
+      photographerId,
+      title,
+      image,
+      video,
+      likes,
+      date,
+      price,
+      srcMedia,
+      getUserGaleryDOM,
+    };
+  }
+
+////////////
+
+Action à rajouter pour renvoyer sur la page du photographe
+<form
+name="form"
+action="index.html"
+method="get"
+onsubmit="return formValidation()"
+id="form"
+>
+
+
+///////////
+
+
+function getUserGaleryLightbox() {
+    const titlePhoto = document.createElement("div");
+    titlePhoto.setAttribute("id", "title-photo");
+    titlePhoto.textContent = title;
+    return titlePhoto;
+  }

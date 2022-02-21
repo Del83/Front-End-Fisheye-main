@@ -8,6 +8,12 @@
       href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
     <title>Fisheye - photographe</title>
   </head>
   <body>
@@ -18,28 +24,90 @@
     </header>
     <main id="main">
       <div class="photograph-header"></div>
+      <div id="tri">
+        <label id="listbox-label" for="trier">Trier par</label>
+        <select id="listbox-container" name="select" id="selection">
+          <option value="popularite">Popularité</option>
+          <option value="date">Date</option>
+          <option value="titre">Titre</option>
+        </select>
+      </div>
       <div class="photograph-galery"></div>
     </main>
-    <div id="contact_modal">
-      <div class="modal">
-        <header>
-          <h2>Contactez-moi</h2>
+    <div id="modal">
+      <div class="contact-modal">
+        <header class="header-modal">
+          <div class="contactNamePhotograph">
+            <span>Contactez-moi</span>
+            <br />
+            <div class="nameContact"></div>
+          </div>
+
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
-        <form>
+        <form
+          name="form"
+          method="get"
+          onsubmit="return formValidation()"
+          id="form"
+        >
           <div>
-            <label>Prénom</label>
-            <input />
+            <label for="contact-first-name">Prénom</label>
+            <input
+              class="text-control"
+              type="text"
+              id="contact-first-name"
+              name="contact-first-name"
+              required
+            />
+            <label for="contact-last-name">Nom</label>
+            <input
+              class="text-control"
+              type="text"
+              id="contact-last-name"
+              name="contact-last-name"
+              required
+            />
+            <label for="contact-email">Email</label>
+            <input
+              class="text-control"
+              type="email"
+              id="contact-email"
+              name="contact-email"
+              required
+            />
+            <label for="contact-message">Votre message</label>
+            <input
+              class="text-control"
+              type="text"
+              id="contact-message"
+              name="contact-message"
+              required
+            />
           </div>
-          <button class="contact_button">Envoyer</button>
+          <input class="contact-button" type="submit" value="Envoyer" />
         </form>
       </div>
     </div>
-    <script src="scripts/pages/index.js"></script>
+    <div id="lightbox">
+      <i id="icon-close-lightbox" onclick="closeLightbox()">&#10005;</i>
+      <div id="lightbox-modal" class="modal-content">
+        <div>
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        </div>
+        <div id="lightbox-modal-main"></div>
+        <div>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="widget"></footer>
     <script src="scripts/pages/photographer.js"></script>
     <script src="scripts/pages/galery.js"></script>
     <script src="scripts/factories/photographerfactory.js"></script>
     <script src="scripts/factories/galeryfactory.js"></script>
     <script src="scripts/utils/contactForm.js"></script>
+    <script src="scripts/utils/lightbox.js"></script>
   </body>
 </html>
