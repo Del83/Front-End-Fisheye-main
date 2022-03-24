@@ -1,0 +1,94 @@
+/* -------------------- LIGHTBOX -------------------- */
+#lightbox {
+  color: #901c1c;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 3;
+}
+
+#lightbox-container {
+  background-color: white;
+  height: 100vh;
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  transform: translateX(0%);
+}
+
+#lightbox-container::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.slides-container {
+  z-index: 3;
+  width: 10%;
+  float: left;
+  display: flex;
+  justify-content: center;
+}
+
+.slides {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.slide-media {
+  display: flex;
+  justify-content: center;
+}
+
+.lightbox-modal-media {
+  object-fit: contain;
+  border-radius: 5px;
+  max-height: 650px;
+  max-width: 100%;
+}
+
+#title-photo {
+  font-size: 24px;
+  padding-top: 15px;
+  margin: 0px;
+}
+
+/* -------------------- boutons CLOSE de la ligthbox -------------------- */
+#lightbox-icon-close {
+  position: absolute;
+  top: 25px;
+  right: 50px;
+  font-size: 62px;
+  font-style: normal;
+  cursor: pointer;
+}
+
+/* -------------------- boutons PREV et NEXT de la ligthbox -------------------- */
+#prev,
+#next {
+  font-size: 80px;
+  cursor: pointer;
+  max-height: 680px;
+  font-weight: 900;
+  color: #901c1c;
+  position: absolute;
+}
+
+/* -------------------- Position des boutons PREV et NEXT de la ligthbox -------------------- */
+#prev {
+  top: 50%;
+  left: 50px;
+}
+
+#next {
+  top: 50%;
+  right: 50px;
+}

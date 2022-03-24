@@ -1,217 +1,240 @@
-#modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-  background-color: rgba(196, 196, 196, 0.4);
-  overflow: auto;
+/** -------------------- En-tête de la page photographer.html -------------------- */
+.photograph-header {
+  background-color: #fafafa;
+  margin: 0 5% 0 5%;
+  padding: 30px;
 }
 
-.contact-modal {
-  border-radius: 5px;
-  background-color: #db8876;
-  width: 40%;
+.photograph-header section {
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: space-between;
-  padding: 35px;
-  margin: auto;
 }
 
-#contact-message {
-  height: 170px;
-}
-
-.contact-button {
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-  padding: 11px;
-  width: 170px;
-  height: 70px;
-  border: none;
-  background-color: #901c1c;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.header-modal {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.modal header {
-  display: flex;
-  flex-direction: row;
-  height: 180px;
-}
-
-.modal header img {
-  cursor: pointer;
-}
-
-.modal header span {
+.photograph-header section h1 {
+  color: #d3573c;
   font-size: 54px;
   font-weight: normal;
-  text-align: center;
+  margin-bottom: 0px;
+  margin-top: 0px;
 }
 
-form {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-form label {
-  color: #312e2e;
-  font-size: 30px;
-  margin-top: 10px;
-}
-
-form div {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: self-start;
-  margin-bottom: 26px;
-}
-
-form input {
-  width: 100%;
-  font-size: 25px;
-  height: 68px;
-  border: none;
-  border-radius: 5px;
-}
-
-#lightbox {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 2;
-  background-color: white;
-  overflow: auto;
-}
-
-#lightbox-modal {
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.photograph-header section h2 {
   color: #901c1c;
-  font-size: 42px;
-  border-radius: 5px;
-  margin: auto;
-  margin-top: 100px;
-}
-
-#lightbox-modal h4 {
   font-size: 24px;
+  font-weight: normal;
   margin: 0px;
 }
 
-#icon-close-lightbox {
-  color: #901c1c;
-  position: absolute;
-  top: 50px;
-  right: 180px;
-  justify-content: flex-end;
-  font-size: 42px;
-  cursor: pointer;
-  font-style: normal;
+.photograph-header section h3 {
+  color: #000;
+  font-size: 18px;
+  font-weight: normal;
 }
 
-.row > .column {
-  padding: 0 8px;
+.photograph-header section h6 {
+  color: #d3573c;
+  font-size: 36px;
+  margin: 10px 0 0 0;
+}
+.photograph-header section img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  box-shadow: 4px 4px 8px #c4c4c4;
+  object-fit: cover;
 }
 
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Create four equal columns that floats next to eachother */
-.column {
-  float: left;
-  width: 25%;
-}
-
-/* The Modal (background) */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  padding-top: 60px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: black;
-}
-
-/* The Close Button */
-.close {
-  color: white;
-  position: absolute;
-  top: 10px;
-  right: 25px;
-  font-size: 35px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #999;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-/* Hide the slides by default */
-.mySlides {
-  display: block;
-}
-
-/* Next & previous buttons */
-.prev,
-.next {
+/** -------------------- Galerie de la page photographer.html -------------------- */
+.photograph-galery {
   display: flex;
-  justify-content: center;
-  padding: 0 1em;
-  font-size: 80px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 30px 100px 40px 100px;
+}
+
+.photograph-galery figure {
+  cursor: pointer;
+  transform: scale(0);
+  animation-name: slideUp;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.photograph-galery figure:nth-child(1n) {
+  animation-delay: 0.15s;
+}
+
+.photograph-galery figure :hover {
+  transition: all 0.25s ease;
+}
+
+.photograph-galery figure img {
+  height: 300px;
+  width: 350px;
+  object-fit: cover;
+  border-radius: 5px;
+  object-position: center top;
+  transform: translateY(0px) scale(1);
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 3px rgb(0 0 0 / 10%);
+}
+
+.photograph-galery figure img:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.photograph-galery figure video {
+  height: 300px;
+  width: 350px;
+  object-fit: cover;
+  border-radius: 5px;
+  object-position: center top;
+  transform: translateY(0px) scale(1);
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 3px rgb(0 0 0 / 10%);
+  max-width: 100%;
+}
+
+.photograph-galery figcaption {
+  display: flex;
+  justify-content: space-between;
+  max-width: 350px;
+  white-space: nowrap;
+}
+
+.photograph-galery figure span {
+  color: #911c1c;
+  font-size: 23px;
+  font-weight: normal;
+  margin-bottom: 30px;
+  margin-top: 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/** -------------------- Like et dislike -------------------- */
+input[type="checkbox"].like-input {
+  display: none;
+}
+
+input[type="checkbox"].like-input + label::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f004";
   color: #901c1c;
+  padding: 0 0.6rem;
+  font-weight: 100;
+}
+input[type="checkbox"].like-input:checked + label::before {
+  font-weight: 900;
+}
+
+.like-label {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  color: #901c1c;
+  font-size: 24px;
+}
+
+/** -------------------- Listbox - tri des médias--------------------*/
+#listbox {
+  display: flex;
+  height: 80px;
+  padding: 10px 0 0 120px;
+}
+
+#listbox-label {
+  font-weight: 500;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+}
+
+.listbox-custom {
+  color: white;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.listbox-custom select {
+  display: none;
+}
+
+.listbox-custom-new {
+  display: flex;
+  align-items: center;
+  background-color: #901c1c;
+  border-radius: 5px;
+  min-height: 80px;
+  width: 170px;
+  cursor: pointer;
+  padding-left: 10px;
+  position: relative;
+}
+
+.select-items {
+  background-color: #901c1c;
+  border-radius: 5px;
+  position: relative;
+  z-index: 5;
   cursor: pointer;
 }
 
-/* Position the "next button" to the right */
-
-.next {
-  right: 0;
+.select-items div {
+  display: flex;
+  align-items: center;
+  min-height: 80px;
+  width: 170px;
+  border-top: solid #fafafa;
+  padding-left: 25px;
+  cursor: pointer;
 }
 
-.active,
-.demo:hover {
-  opacity: 1;
+.select-hide {
+  display: none;
 }
 
-img.hover-shadow {
-  transition: 0.3s;
+.active {
+  display: none;
 }
 
-.lightbox-modal-media {
-  object-fit: contain;
-  border-radius: 5px;
-  max-height: 800px;
-  max-width: 900px;
+.listbox-custom-new::after {
+  font-family: "Font Awesome 5 Free";
+  content: "\f078";
+  position: absolute;
+  right: 8px;
+}
+
+.listbox-custom-new.active::after {
+  font-family: "Font Awesome 5 Free";
+  content: "\f077";
+}
+
+/** -------------------- WIDGET de la page photographer.html -------------------- */
+.widget aside {
+  position: fixed;
+  bottom: 0px;
+  left: 73%;
+  background-color: #db8876;
+  width: 376px;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px 5px 0 0;
+  font-size: 24px;
+  font-weight: 500;
+  /* transform: translateY(50px); */
+  animation-name: slideIn;
+  animation-delay: 1.75s;
+  animation-duration: 0.85s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  z-index: 2;
+  box-shadow: 0 1px 1px rgb(0 0 0 / 12%), 0 2px 2px rgb(0 0 0 / 12%),
+    0 4px 4px rgb(0 0 0 / 12%), 0 8px 8px rgb(0 0 0 / 12%),
+    0 16px 16px rgb(0 0 0 / 12%);
 }

@@ -1,6 +1,10 @@
 @import url("photographer.css");
+@import url("contactform.css");
+@import url("lightbox.css");
 
+/** -------------------- Keyframes -------------------- */
 @keyframes fadeIn {
+  /* Keyframe pour l'animation au moment du chargement des photos/portrait de la page index.html */
   0% {
     opacity: 0;
   }
@@ -11,6 +15,7 @@
 }
 
 @keyframes slideUp {
+  /* Keyframe pour l'animation au moment du chargement des médias de la page photographer.html */
   0% {
     opacity: 0;
     transform: translateY(500px);
@@ -25,6 +30,7 @@
   }
 }
 
+/** -------------------- Général -------------------- */
 a {
   text-decoration: none;
 }
@@ -55,6 +61,7 @@ h1 {
   margin-left: 100px;
 }
 
+/** -------------------- Article par photographe de la page index.html -------------------- */
 .photographer_section {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -108,185 +115,4 @@ h1 {
   border-radius: 50%;
   box-shadow: 4px 4px 8px #c4c4c4;
   object-fit: cover;
-}
-
-.photograph-header {
-  background-color: #fafafa;
-  margin: 0 5% 0 5%;
-  padding: 30px;
-}
-
-.photograph-header section {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.photograph-header section h1 {
-  color: #d3573c;
-  font-size: 54px;
-  font-weight: normal;
-  margin-bottom: 0px;
-  margin-top: 0px;
-}
-
-.photograph-header section h2 {
-  color: #901c1c;
-  font-size: 24px;
-  font-weight: normal;
-  margin: 0px;
-}
-
-.photograph-header section h3 {
-  color: #000;
-  font-size: 18px;
-  font-weight: normal;
-}
-
-.photograph-header section h6 {
-  color: #d3573c;
-  font-size: 36px;
-  margin: 10px 0 0 0;
-}
-.photograph-header section img {
-  height: 200px;
-  width: 200px;
-  border-radius: 50%;
-  box-shadow: 4px 4px 8px #c4c4c4;
-  object-fit: cover;
-}
-
-.photograph-galery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 50px 100px 50px 100px;
-}
-
-.photograph-galery figure {
-  cursor: pointer;
-  transform: scale(0);
-  animation-name: slideUp;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-}
-
-.photograph-galery figure:nth-child(1n) {
-  animation-delay: 0.15s;
-}
-
-.photograph-galery figure :hover {
-  transform: translateY(-2px) scale(1.02);
-  transition: all 0.25s ease;
-  box-shadow: 0 1px 1px rgb(0 0 0 / 12%), 0 2px 2px rgb(0 0 0 / 12%),
-    0 4px 4px rgb(0 0 0 / 12%), 0 8px 8px rgb(0 0 0 / 12%),
-    0 16px 16px rgb(0 0 0 / 12%);
-}
-
-.photograph-galery figure img {
-  height: 300px;
-  width: 350px;
-  object-fit: cover;
-  border-radius: 5px;
-  object-position: center top;
-  transform: translateY(0px) scale(1);
-  transition: all 0.25s ease;
-  box-shadow: 0 3px 3px rgb(0 0 0 / 10%);
-}
-
-.photograph-galery figure video {
-  height: 300px;
-  width: 350px;
-  object-fit: cover;
-  border-radius: 5px;
-  object-position: center top;
-  transform: translateY(0px) scale(1);
-  transition: all 0.25s ease;
-  box-shadow: 0 3px 3px rgb(0 0 0 / 10%);
-  max-width: 100%;
-}
-
-.photograph-galery figure h4 {
-  color: #911c1c;
-  font-size: 24px;
-  font-weight: normal;
-  margin-bottom: 30px;
-  margin-top: 0px;
-}
-
-.photograph-galery figcaption {
-  display: flex;
-  justify-content: space-between;
-}
-
-.icone-like-photo {
-  font-size: 24px;
-  color: #911c1c;
-}
-
-aside {
-  display: flex;
-}
-
-aside h5 {
-  font-size: 24px;
-}
-
-.widget {
-  position: fixed;
-  bottom: 0px;
-  left: 73%;
-  background-color: #db8876;
-  width: 376px;
-  height: 50px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border-radius: 5px 5px 0 0;
-  font-weight: 500;
-  /* transform: translateY(50px); */
-  animation-name: slideIn;
-  animation-delay: 1.75s;
-  animation-duration: 0.85s;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
-  z-index: 2;
-  box-shadow: 0 1px 1px rgb(0 0 0 / 12%), 0 2px 2px rgb(0 0 0 / 12%),
-    0 4px 4px rgb(0 0 0 / 12%), 0 8px 8px rgb(0 0 0 / 12%),
-    0 16px 16px rgb(0 0 0 / 12%);
-}
-
-#tri {
-  display: flex;
-  height: 80px;
-  padding: 10px 0 0 120px;
-}
-
-#listbox-label {
-  font-weight: 500;
-  font-size: 24px;
-  display: flex;
-  align-items: center;
-  padding-right: 10px;
-}
-
-#listbox-container {
-  background-color: #901c1c;
-  display: flex;
-  align-items: center;
-  color: white;
-  font-size: 19px;
-  font-weight: 800;
-  border-radius: 5px;
-  min-height: 50px;
-  width: 150px;
-  cursor: pointer;
-  padding-left: 10px;
-}
-
-#listbox-container option {
-  color: white;
-  font-size: 18px;
-  margin: 0 1ch;
 }

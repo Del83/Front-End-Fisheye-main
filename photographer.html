@@ -24,13 +24,15 @@
     </header>
     <main id="main">
       <div class="photograph-header"></div>
-      <div id="tri">
+      <div id="listbox">
         <label id="listbox-label" for="trier">Trier par</label>
-        <select id="listbox-container" name="select" id="selection">
-          <option value="popularite">Popularité</option>
-          <option value="date">Date</option>
-          <option value="titre">Titre</option>
-        </select>
+        <div class="listbox-custom">
+          <select id="listbox-container" name="select" id="selection">
+            <option value="popularite">Popularité</option>
+            <option value="date">Date</option>
+            <option value="titre">Titre</option>
+          </select>
+        </div>
       </div>
       <div class="photograph-galery"></div>
     </main>
@@ -45,69 +47,73 @@
 
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
-        <form
-          name="form"
-          method="get"
-          onsubmit="return formValidation()"
-          id="form"
-        >
+        <form name="form" action="" id="form">
           <div>
-            <label for="contact-first-name">Prénom</label>
-            <input
-              class="text-control"
-              type="text"
-              id="contact-first-name"
-              name="contact-first-name"
-              required
-            />
-            <label for="contact-last-name">Nom</label>
-            <input
-              class="text-control"
-              type="text"
-              id="contact-last-name"
-              name="contact-last-name"
-              required
-            />
-            <label for="contact-email">Email</label>
-            <input
-              class="text-control"
-              type="email"
-              id="contact-email"
-              name="contact-email"
-              required
-            />
-            <label for="contact-message">Votre message</label>
-            <input
-              class="text-control"
-              type="text"
-              id="contact-message"
-              name="contact-message"
-              required
-            />
+            <div class="first-container">
+              <label for="contact-first-name">Prénom</label>
+              <input
+                class="text-control"
+                type="text"
+                id="first"
+                name="contact-first-name"
+                required
+              />
+              <span class="message-error-contact"></span>
+            </div>
+            <div class="last-container">
+              <label for="contact-last-name">Nom</label>
+              <input
+                class="text-control"
+                type="text"
+                id="last"
+                name="contact-last-name"
+                required
+              />
+              <span class="message-error-contact"></span>
+            </div>
+            <div class="email-container">
+              <label for="contact-email">Email</label>
+              <input
+                class="text-control"
+                type="email"
+                id="email"
+                name="contact-email"
+                required
+              />
+              <span class="message-error-contact"></span>
+            </div>
+            <div class="message-container">
+              <label for="contact-message">Votre message</label>
+              <input
+                class="text-control"
+                type="text"
+                id="message"
+                name="contact-message"
+                required
+              />
+              <span class="message-error-contact"></span>
+            </div>
           </div>
           <input class="contact-button" type="submit" value="Envoyer" />
         </form>
       </div>
     </div>
     <div id="lightbox">
-      <i id="icon-close-lightbox" onclick="closeLightbox()">&#10005;</i>
-      <div id="lightbox-modal" class="modal-content">
-        <div>
-          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        </div>
-        <div id="lightbox-modal-main"></div>
-        <div>
-          <a class="next" onclick="plusSlides(1)">&#10095;</a>
-        </div>
-      </div>
+      <div id="lightbox-container"></div>
+      <i onclick="closeLightbox()" id="lightbox-icon-close">x</i>
+      <div id="prev"><</div>
+      <div id="next">></div>
     </div>
 
     <footer class="widget"></footer>
+
     <script src="scripts/pages/photographer.js"></script>
     <script src="scripts/pages/galery.js"></script>
     <script src="scripts/factories/photographerfactory.js"></script>
     <script src="scripts/factories/galeryfactory.js"></script>
     <script src="scripts/utils/contactForm.js"></script>
     <script src="scripts/utils/lightbox.js"></script>
+    <script src="scripts/utils/likes.js"></script>
+    <script src="scripts/utils/listbox.js"></script>
   </body>
 </html>

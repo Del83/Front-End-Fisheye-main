@@ -635,3 +635,227 @@ function getUserGaleryLightbox() {
     titlePhoto.textContent = title;
     return titlePhoto;
   }
+
+
+  ///////////////
+
+  <i id="lightbox-icon-close" onclick="closeLightbox()">&#10005;</i>
+      <div id="slides-container" class="modal-content">
+        <div>
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        </div>
+        <div id="slide-media"></div>
+        <div>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+      </div>
+
+
+///////////////////
+
+
+/** création du bouton PREV de la lightbox */
+    const slidePrev = document.createElement("bouton");
+    slidePrev.classList.add("prev");
+    slidePrev.textContent = "<";
+    //lightboxPrev.setAttribute("onclick", "plusSlides(-1)");
+
+    /** création du bouton NEXT de la lightbox */
+    const slideNext = document.createElement("bouton");
+    slideNext.classList.add("next");
+    slideNext.textContent = ">";
+    //lightboxPrev.setAttribute("onclick", "plusSlides(1)");
+
+    ///////////
+
+
+/*function currentMedia(imgs) {
+  const expandImg = document.getElementById("expandedImg");
+  expandImg.src = imgs.src;
+  //expandImg.parentElement.style.display = "block";
+  openLightbox();
+}*/
+
+/* for (let i = 0; i < mediasLightbox.length; i++) {
+    mediasLightbox[i].addEventListener("click", (e) => {
+      console.log("koukou");
+      openLightbox();
+    });
+  }*/
+
+/*async function initLightboxContainer() {
+  //const { medias } = await getLikes();
+
+  await initGalery();
+  //await initLightbox();
+  getLikes();
+  return addClic(), displayLikes();
+}
+
+initLightboxContainer();
+
+/*const slideIndex = 1;
+const slides = document.getElementsByClassName("slides");
+
+//showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides((slideIndex += n));
+}
+
+function showSlides(n) {
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  //slides[slideIndex - 1].style.display = "block";  CA BLOQUE LE RESTE :-(
+}*/
+
+
+//////////////////// recup id photo cliquer
+
+
+const mediasLightbox = document.querySelectorAll(".galery-medias");
+//console.log(mediasLightbox);
+for (let i = 0; i < mediasLightbox.length; i++) {
+  mediasLightbox[i].addEventListener("click", (e) => {
+    //console.log(e.target.dataset.mediaid);
+    new Lightbox(i, mediasLightbox.length);
+    openLightbox();
+  });
+}
+new Lightbox();
+}
+
+
+//////////
+
+
+function addClic() {
+  //const legendLike = document.querySelectorAll(".legend-like");
+  //legendLike.querySelectorAll("input:child-first");
+  const likesInput = document.querySelectorAll(".like-input");
+
+  const nbrLikes = document.querySelectorAll(".like-label");
+
+  // console.log(nbrLikes);
+
+  likesInput.forEach((likeInput) => {
+    likeInput.addEventListener("input", (e) => {
+      let likeText = parseInt(e.target.nextSibling.innerHTML);
+
+      let maker = e.currentTarget;
+      console.log(nbrLikes.label);
+      if (!maker.checked) {
+        console.log((likeText -= 1));
+        likeText -= 1;
+      } else {
+        likeText += 1;
+        console.log((likeText += 1));
+      }
+    });
+    return displayLikes();
+  });
+}
+
+function displayLikes() {
+  const nbrLikes = document.querySelectorAll(".like-label");
+  const displayLikeCounter = document.querySelector(".counter-likes");
+  let likeTest = 0;
+  let arrayLikes = [];
+  nbrLikes.forEach((like) => {
+    likeTest = parseInt(like.textContent);
+    arrayLikes.push(likeTest);
+    const totalLike = arrayLikes.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue;
+    }, 0);
+    console.log(likeTest);
+    //console.log(totalLike);
+    return (displayLikeCounter.textContent = totalLike + " ");
+  });
+}
+
+
+/*async function TotalLikesDisplay() {
+  const clicLikes = document.querySelectorAll(".like-label");
+  const displayLikeCounter = document.querySelector(".counter-likes");
+
+  clicLikes.forEach((like) => {
+    likeTest = parseInt(like.textContent);
+    arrayLikes.push(likeTest);
+    const totalLike = arrayLikes.reduceRight(
+      (accumulator, currentValue) => accumulator + currentValue
+    );
+    displayLikeCounter.textContent = totalLike + " ";
+  });
+}*/
+
+/*c
+      clic.addEventListener("input", () => {
+        if (clic.checked) {
+          console.log(likeTest++);
+          //console.log((totalLike += 1));
+          displayLikeCounter.textContent = totalLike++ + " ";
+        } else {
+          console.log(likeTest--);
+          //console.log((totalLike -= 1));
+          displayLikeCounter.textContent = totalLike-- + " ";
+          return totalLike;
+        }
+      });
+    });*/
+
+/*function addClic() {
+      //const legendLike = document.querySelectorAll(".legend-like");
+    
+      //const likeInput = document.querySelectorAll(".like-input");
+    
+      //legendLike.querySelectorAll("input:child-first");
+    
+      const nbrLikes = document.querySelectorAll(".like-label");
+      // console.log(nbrLikes);
+      for (let i = 0; i < nbrLikes.length; i++) {
+        nbrLikes[i].addEventListener("click", () => {
+          //let maker = e.currentTarget;
+          console.log("!likeInput");
+    
+          if (!nbrLikes.checked) {
+            nbrLikes.textContent++;
+          } else {
+            nbrLikes.textContent--;
+          }
+          return displayLikes();
+        });
+      }
+    }*/
+
+/*function addClic() {
+      //const legendLike = document.querySelectorAll(".legend-like");
+      //legendLike.querySelectorAll("input:child-first");
+      const likeInput = document.querySelectorAll(".like-input");
+      const nbrLikes = document.querySelectorAll(".like-label");
+      // console.log(nbrLikes);
+    
+      for (let i = 0; i < likeInput.length; i++) {
+        likeInput[i].addEventListener("input", (e) => {
+          let likeText = parseInt(e.target.nextSibling.textContent);
+          //console.log(likeText);
+          let maker = e.currentTarget;
+          if (!maker.checked) {
+            console.log((likeText -= 1));
+            likeText -= 1;
+          }
+          if (maker.checked) {
+            likeText += 1;
+            console.log((likeText += 1));
+          }
+          return displayLikes();
+        });
+      }
+    } */

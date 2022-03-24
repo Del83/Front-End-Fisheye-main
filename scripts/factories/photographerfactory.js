@@ -3,13 +3,17 @@ function photographerFactory(data) {
 
   const picture = `./assets/photographers/${portrait}`;
 
+  /** ---------- CREATION DU GABARIT DE LA PAGE INDEX.HTML - PRESENTATION DES PHOTOGRAPHES ---------- */
   function getUserCardDOM() {
+    /** LIEN vers la page du photographe - ajout de l'ID du photographe sur l'adresse HTML de la page photographer.html */
     const lien = document.createElement("a");
     lien.setAttribute("href", `./photographer.html?id=` + id);
     lien.classList.add(id);
+
+    /** ARTICLE pour chaque photographe */
     const article = document.createElement("article");
     const div = document.createElement("div");
-    const img = document.createElement("img");
+    const img = document.createElement("img"); /** Portrait du photographe */
     img.setAttribute("src", picture);
     const h2 = document.createElement("h2");
     h2.textContent = name;
@@ -30,6 +34,7 @@ function photographerFactory(data) {
     return article;
   }
 
+  /** ---------- CREATION DU GABARIT DU HEADER DE LA PAGE PHOTOGRAHER.HTML - PRESENTATION DU PHOTOGRAPHE ---------- */
   function getUserCardDOMPage() {
     const articlePage = document.createElement("section");
     const divProfil = document.createElement("div");
@@ -54,16 +59,27 @@ function photographerFactory(data) {
     return articlePage;
   }
 
+  /** ---------- CREATION DU GABARIT DU WIDGET DE LA PAGE PHOTOGRAHER.HTML - TARIF JOURNALIER ET LIKE DU PHOTOGRAPHE ---------- */
   function getUserCounterDOM() {
     const asideWidget = document.createElement("aside");
-    const counterWidget = document.createElement("div");
+    const counterLikes = document.createElement("div");
+    const counterLikesDisplay = document.createElement("span");
+    counterLikesDisplay.classList.add("counter-likes");
+    const likeHeart = document.createElement("i");
+    likeHeart.classList.add("fas", "fa-heart");
+    const priceWidget = document.createElement("div");
     const h5Widget = document.createElement("h5");
     h5Widget.textContent = price + "€/jour";
-    asideWidget.appendChild(counterWidget);
-    counterWidget.appendChild(h5Widget);
+
+    asideWidget.appendChild(counterLikes);
+    counterLikes.appendChild(counterLikesDisplay);
+    counterLikes.appendChild(likeHeart);
+    asideWidget.appendChild(priceWidget);
+    priceWidget.appendChild(h5Widget);
     return asideWidget;
   }
 
+  /** ---------- AFFICHAGE DU NOM DU PHOTOGRAPHE DANS LE FORMULAIRE DE CONTACT DE LA PAGE PHOTOGRAHER.HTML ---------- */
   function getUserContactDOM() {
     const contactName = document.createElement("span");
     contactName.textContent = name;

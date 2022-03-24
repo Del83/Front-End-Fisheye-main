@@ -8,65 +8,102 @@ function galeryFactory(data) {
     srcMedia += video;
   }
 
-  console.log();
-
+  /** ---------- CREATION DU GABARIT DE LA GALERIE DES MEDIAS DU PHOTOGRAPHE ---------- */
   function getUserGaleryDOM() {
+    /** FIGURES pour chaque médias */
     const figureGalery = document.createElement("figure");
-    figureGalery.classList.add(id, "hover-shadow");
-    figureGalery.setAttribute("onclick", "openLightbox(); currentSlide()");
-    /*figureGalery.addEventListener("onclick", () => {
-      console.log("coucou");
-      openLightbox();
-      currentSlide();
-    });*/
+    figureGalery.classList.add("media-figure");
+    figureGalery.setAttribute("id", "figure-" + id);
+
+    /** LEGENDES(TITRES et LIKES) des médias */
     const legendGalery = document.createElement("figcaption");
-    const legendTitle = document.createElement("div");
+
+    /** TITRES des médias */
+    const legendTitle = document.createElement("span");
+    legendTitle.classList.add("legend-title");
+    legendTitle.textContent = title;
+
+    /** LIKES des médias */
     const legendLike = document.createElement("div");
-    legendLike.classList.add("icone-like-photo");
-    const h4Page = document.createElement("h4");
-    const like = document.createElement("i");
-    like.classList.add("fas", "fa-heart");
+    legendLike.classList.add("legend-like");
+
+    /** INPUT des likes */
+    const likeInput = document.createElement("input");
+    likeInput.classList.add("like-input");
+    likeInput.setAttribute("type", "checkbox");
+    likeInput.setAttribute("id", id);
+
+    /** LABEL des likes */
+    const likeLabel = document.createElement("label");
+    likeLabel.setAttribute("for", id);
+    likeLabel.classList.add("like-label");
+    likeLabel.textContent = likes + " ";
+
+    /** MEDIAS => vidéo ou image */
     if (image) {
       const imgPhoto = document.createElement("img");
+      imgPhoto.classList.add("galery-medias");
       imgPhoto.setAttribute("src", srcMedia);
+      imgPhoto.setAttribute("data-mediaid", id);
+      //imgPhoto.setAttribute("onclick", "currentMedia(this)");
       figureGalery.appendChild(imgPhoto);
     } else {
       const vidPhoto = document.createElement("video");
+      vidPhoto.classList.add("galery-medias");
       vidPhoto.setAttribute("type", "video/mp4");
       vidPhoto.setAttribute("src", srcMedia);
-      vidPhoto.setAttribute("controls", null);
+      vidPhoto.setAttribute("data-mediaid", id);
+      //vidPhoto.setAttribute("onclick", "openLightbox()");
       figureGalery.appendChild(vidPhoto);
     }
-    h4Page.textContent = title;
+
     figureGalery.appendChild(legendGalery);
     legendGalery.appendChild(legendTitle);
-    legendTitle.appendChild(h4Page);
     legendGalery.appendChild(legendLike);
-    legendLike.appendChild(like);
+    legendLike.appendChild(likeInput);
+    legendLike.appendChild(likeLabel);
     return figureGalery;
   }
 
+  /** ---------- CREATION DU GABARIT DE LA LIGHTBOX ---------- */
   function getUserGaleryLightbox() {
-    const lightboxModalMain = document.createElement("div");
-    lightboxModalMain.classList.add("lightbox-modal-main", "mySlides");
+    /** création du CONTAINER des SLIDES de la lightbox */
+    const slidesContainer = document.createElement("div");
+    slidesContainer.classList.add("slides-container");
+
+    /** création des SLIDES de la lightbox */
+    const slides = document.createElement("figure");
+    slides.classList.add("slides");
+    slidesContainer.appendChild(slides);
+
+    /** MEDIAS => vidéo ou image */
+    const slideMedia = document.createElement("div");
+    slideMedia.setAttribute("id", "slide-media" + id);
+    slideMedia.classList.add("slide-media");
+    slides.appendChild(slideMedia);
     if (image) {
       const imgPhotoLightbox = document.createElement("img");
       imgPhotoLightbox.setAttribute("src", srcMedia);
       imgPhotoLightbox.classList.add("lightbox-modal-media");
-      lightboxModalMain.appendChild(imgPhotoLightbox);
+      slideMedia.appendChild(imgPhotoLightbox);
     } else {
       const vidPhotoLightbox = document.createElement("video");
       vidPhotoLightbox.setAttribute("type", "video/mp4");
       vidPhotoLightbox.setAttribute("src", srcMedia);
       vidPhotoLightbox.classList.add("lightbox-modal-media");
       vidPhotoLightbox.setAttribute("controls", null);
-      lightboxModalMain.appendChild(vidPhotoLightbox);
+      slideMedia.appendChild(vidPhotoLightbox);
     }
+
+    /** LEGENDE(TITRE) des médias de la lightbox */
+    const lightboxLegendTitle = document.createElement("figcaption");
     const titlePhoto = document.createElement("h4");
     titlePhoto.setAttribute("id", "title-photo");
     titlePhoto.textContent = title;
-    lightboxModalMain.appendChild(titlePhoto);
-    return lightboxModalMain;
+
+    slides.appendChild(lightboxLegendTitle);
+    lightboxLegendTitle.appendChild(titlePhoto);
+    return slidesContainer;
   }
 
   return {
