@@ -21,9 +21,7 @@ function photographGaleryDisplay() {
   const itemsSort = document.querySelector(".listbox-custom-new").textContent;
 
   function selectSort(itemSort) {
-    console.log(itemSort === "Date");
     if (itemSort === "Date") {
-      console.log("kikou");
       return sortMediaByDate;
     } else if (itemSort === "Popularité") {
       return sortMediaByLikes;
@@ -32,17 +30,12 @@ function photographGaleryDisplay() {
     }
   }
 
-  console.log(itemsSort);
-  console.log(mediasFilter);
   mediasFilter.sort(selectSort(itemsSort));
   const photographGalery = document.querySelector(".photograph-galery");
   const photographLightbox = document.getElementById("lightbox-container");
   photographGalery.innerHTML = "";
   photographLightbox.innerHTML = "";
-  console.log(mediasFilter);
   mediasFilter.forEach((media) => {
-    //console.log(mediasFilter);
-
     if (mediasFilter.indexOf()) {
       const photographerModelGalery = galeryFactory(media);
       const userGalery = photographerModelGalery.getUserGaleryDOM();
@@ -61,8 +54,12 @@ function photographGaleryDisplay() {
     mediasLightbox[i].addEventListener("click", (e) => {
       new Lightbox(i, mediasLightbox.length);
       openLightbox();
-
-      //console.log(e.target.dataset.mediaid);
+    });
+    mediasLightbox[i].addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        new Lightbox(i + 1, mediasLightbox.length);
+        openLightbox();
+      }
     });
   }
   new Lightbox();
@@ -73,24 +70,3 @@ async function initGalery() {
   const { medias } = await getMedias();
   photographGaleryDisplay(medias);
 }
-
-/*async function initLightbox() {
-  // Récupère les medias du photographe
-  const { medias } = await getMedias();
-  photographLightboxDisplay(medias);
-}*/
-
-//initGalery();
-
-/*function photographLightboxDisplay() {
-  const mediasFilter = medias.filter(
-    (media) => media.photographerId === parseInt(getPhotographerId())
-  );
-  mediasFilter.forEach((media) => {
-    if (mediasFilter.indexOf()) {
-      const photographerModelGalery = galeryFactory(media);
-      const userGaleryPhoto = photographerModelGalery.getUserGaleryLightbox();
-      photographLightbox.appendChild(userGaleryPhoto);
-    }
-  });
-}*/

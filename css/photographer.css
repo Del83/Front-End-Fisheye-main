@@ -13,7 +13,7 @@
 
 .photograph-header section h1 {
   color: #d3573c;
-  font-size: 54px;
+  font-size: 2.625em;
   font-weight: normal;
   margin-bottom: 0px;
   margin-top: 0px;
@@ -116,7 +116,25 @@
 
 /** -------------------- Like et dislike -------------------- */
 input[type="checkbox"].like-input {
-  display: none;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+input[type="checkbox"].like-input:focus {
+  border: 2px solid blue;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 input[type="checkbox"].like-input + label::before {
@@ -147,7 +165,7 @@ input[type="checkbox"].like-input:checked + label::before {
 
 #listbox-label {
   font-weight: 500;
-  font-size: 24px;
+  font-size: 20px;
   display: flex;
   align-items: center;
   padding-right: 10px;
@@ -155,7 +173,7 @@ input[type="checkbox"].like-input:checked + label::before {
 
 .listbox-custom {
   color: white;
-  font-size: 19px;
+  font-size: 20px;
   font-weight: 800;
 }
 
@@ -168,7 +186,7 @@ input[type="checkbox"].like-input:checked + label::before {
   align-items: center;
   background-color: #901c1c;
   border-radius: 5px;
-  min-height: 80px;
+  min-height: 69px;
   width: 170px;
   cursor: pointer;
   padding-left: 10px;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8" />
@@ -17,15 +17,24 @@
     <title>Fisheye - photographe</title>
   </head>
   <body>
-    <header>
-      <a href="./index.html"
-        ><img src="assets/images/logo.png" class="logo"
+    <header role="banner">
+      <a
+        href="./index.html"
+        id="logo"
+        aria-label="Redirige vers la page d'accueil"
+        ><img
+          src="assets/images/logo.png"
+          role="link"
+          class="logo"
+          alt="Fisheye home page"
       /></a>
     </header>
-    <main id="main">
-      <div class="photograph-header"></div>
-      <div id="listbox">
-        <label id="listbox-label" for="trier">Trier par</label>
+    <main id="main" aria-hidden="false">
+      <section class="photograph-header"></section>
+      <section id="listbox">
+        <label id="listbox-label" for="trier" role="input label"
+          >Trier par</label
+        >
         <div class="listbox-custom">
           <select id="listbox-container" name="select" id="selection">
             <option value="popularite">Popularité</option>
@@ -33,11 +42,17 @@
             <option value="titre">Titre</option>
           </select>
         </div>
-      </div>
+      </section>
       <div class="photograph-galery"></div>
     </main>
     <div id="modal">
-      <div class="contact-modal">
+      <div
+        class="contact-modal"
+        role="dialog"
+        aria-describedby="modal"
+        aria-hidden="true"
+        tabindex="-1"
+      >
         <header class="header-modal">
           <div class="contactNamePhotograph">
             <span>Contactez-moi</span>
@@ -45,7 +60,12 @@
             <div class="nameContact"></div>
           </div>
 
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img
+            src="assets/icons/close.svg"
+            id="close-modal"
+            alt="Close Contact form"
+            onclick="closeModal()"
+          />
         </header>
         <form name="form" action="" id="form">
           <div>
@@ -54,55 +74,85 @@
               <input
                 class="text-control"
                 type="text"
-                id="first"
+                id="contact-first-name"
                 name="contact-first-name"
+                aria-labelledby="contact-first-name"
+                aria-required="true"
                 required
               />
-              <span class="message-error-contact"></span>
+              <span class="message-error-contact" aria-invalid></span>
             </div>
             <div class="last-container">
               <label for="contact-last-name">Nom</label>
               <input
                 class="text-control"
                 type="text"
-                id="last"
+                id="contact-last-name"
                 name="contact-last-name"
+                aria-labelledby="contact-last-name"
+                aria-required="true"
                 required
               />
-              <span class="message-error-contact"></span>
+              <span class="message-error-contact" aria-invalid></span>
             </div>
             <div class="email-container">
               <label for="contact-email">Email</label>
               <input
                 class="text-control"
                 type="email"
-                id="email"
+                id="contact-email"
                 name="contact-email"
+                aria-labelledby="contact-email"
+                aria-required="true"
                 required
               />
-              <span class="message-error-contact"></span>
+              <span class="message-error-contact" aria-invalid></span>
             </div>
             <div class="message-container">
               <label for="contact-message">Votre message</label>
               <input
                 class="text-control"
                 type="text"
-                id="message"
+                id="contact-message"
                 name="contact-message"
+                aria-labelledby="contact-message"
+                aria-required="true"
                 required
               />
-              <span class="message-error-contact"></span>
+              <span class="message-error-contact" aria-invalid></span>
             </div>
           </div>
-          <input class="contact-button" type="submit" value="Envoyer" />
+          <input
+            role="button"
+            class="contact-button"
+            type="submit"
+            value="Envoyer"
+            aria-label="Send"
+          />
         </form>
       </div>
     </div>
-    <div id="lightbox">
+    <div
+      id="lightbox"
+      role="dialog"
+      aria-label="image closeup view"
+      aria-hidden="true"
+      tabindex="0"
+    >
       <div id="lightbox-container"></div>
-      <i onclick="closeLightbox()" id="lightbox-icon-close">x</i>
-      <div id="prev"><</div>
-      <div id="next">></div>
+      <button
+        onclick="closeLightbox()"
+        id="lightbox-icon-close"
+        aria-label="Close dialog"
+      >
+        x
+      </button>
+      <button id="prev" aria-label="Previous image" role="link" tabindex="0">
+        <
+      </button>
+      <button id="next" aria-label="Next image" role="link" tabindex="0">
+        >
+      </button>
     </div>
 
     <footer class="widget"></footer>

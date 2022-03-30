@@ -1,4 +1,4 @@
-//-----------FETCH DATA pour récupérer les infos média du fichier JSON
+/** FETCH DATA pour récupérer les infos média du fichier JSON */
 async function getLikes() {
   await fetch("./data/photographers.json")
     .then((res) => res.json())
@@ -8,52 +8,57 @@ async function getLikes() {
   };
 }
 
+/** Ajoute les likes checkés */
 function addClic() {
+  /** Elements du DOM */
   const likesInput = document.querySelectorAll(".like-input");
 
+  /** Ecoute les inputs des likes */
   likesInput.forEach((likeInput) => {
-    likeInput.addEventListener("input", (e) => {
-      let likeText = parseInt(e.target.nextSibling.textContent);
-      let liked = e.target.nextSibling;
-      let maker = e.currentTarget;
+    likeInput.addEventListener("click", (e) => {
+      /** Variables */
+      let likeText = parseInt(e.target.nextSibling.textContent); // Transforme en nombre le texte à côté de l'input (label = nombre de like)
+      let liked = e.target.nextSibling; // Texte du label (nombre de like)
+      let maker = e.currentTarget; // Input cible
 
+      /** Si l'input cible est non checké */
       if (!maker.checked) {
-        likeText--;
+        likeText--; // Décremente le label
+        /** Si l'input cible est checké */
       } else {
-        likeText++;
+        likeText++; // Incrémente le label
       }
-      liked.textContent = likeText;
-      displayLikes();
+      liked.textContent = likeText; // Modifie le label
+      displayLikes(); // Rappel de la fonction d'affichage des likes du photopgraphe
     });
   });
 }
 
+/** Affiche le nombre total de likes du photographe */
 function displayLikes() {
+  /** Elements du DOM */
   const nbrLikes = document.querySelectorAll(".like-label");
   const displayLikeCounter = document.querySelector(".counter-likes");
-  let likeTest = 0;
+
+  /** Variables */
+  let likesText = 0;
   let totalLike = 0;
   let arrayLikes = [];
 
   nbrLikes.forEach((like) => {
-    likeTest = parseInt(like.textContent);
-    arrayLikes.push(likeTest);
+    likesText = parseInt(like.textContent); // Transforme en nombre le texte à côté de l'input (label = nombre de like)
+    arrayLikes.push(likesText); // Alimente le tableau "arrayLikes" du nombre de like de chaque média du photographe
     totalLike = arrayLikes.reduce((accumulator, currentValue) => {
       return accumulator + currentValue;
-    }, 0);
-    return (displayLikeCounter.textContent = totalLike + " ");
+    }, 0); // Calcule la somme du tableau
+    return (displayLikeCounter.textContent = totalLike + " "); // Met à jour le total des likes du photographe
   });
 }
 
 /** A chaque like d'une photo, lancement de la fonction addlike */
-
 async function initLike() {
-  //const { medias } = await getLikes();
-
-  await initGalery();
-  //await initLightbox();
-  getLikes();
-  return displayLikes(), addClic(); // rajouter
+  await initGalery(); // Attend l'initialisation de la galerie des médias
+  getLikes(); // Appel de la fonction  qui récupère les données concernant les likes
+  return displayLikes(), addClic(); // Renvoi les fonctions d'affichage du total des likes et l'ajout des likes checkés
 }
-
 initLike();

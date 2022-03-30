@@ -14,6 +14,7 @@ function galeryFactory(data) {
     const figureGalery = document.createElement("figure");
     figureGalery.classList.add("media-figure");
     figureGalery.setAttribute("id", "figure-" + id);
+    figureGalery.setAttribute("aria-label", "carte du média " + title);
 
     /** LEGENDES(TITRES et LIKES) des médias */
     const legendGalery = document.createElement("figcaption");
@@ -29,9 +30,12 @@ function galeryFactory(data) {
 
     /** INPUT des likes */
     const likeInput = document.createElement("input");
-    likeInput.classList.add("like-input");
     likeInput.setAttribute("type", "checkbox");
     likeInput.setAttribute("id", id);
+    likeInput.classList.add("like-input");
+    likeInput.setAttribute("role", "img");
+    likeInput.setAttribute("aria-label", "likes");
+    likeInput.setAttribute("tabindex", "0");
 
     /** LABEL des likes */
     const likeLabel = document.createElement("label");
@@ -45,7 +49,9 @@ function galeryFactory(data) {
       imgPhoto.classList.add("galery-medias");
       imgPhoto.setAttribute("src", srcMedia);
       imgPhoto.setAttribute("data-mediaid", id);
-      //imgPhoto.setAttribute("onclick", "currentMedia(this)");
+      imgPhoto.setAttribute("alt", title + ", closeup view");
+      imgPhoto.setAttribute("role", "link");
+      imgPhoto.setAttribute("tabindex", 0);
       figureGalery.appendChild(imgPhoto);
     } else {
       const vidPhoto = document.createElement("video");
@@ -53,7 +59,9 @@ function galeryFactory(data) {
       vidPhoto.setAttribute("type", "video/mp4");
       vidPhoto.setAttribute("src", srcMedia);
       vidPhoto.setAttribute("data-mediaid", id);
-      //vidPhoto.setAttribute("onclick", "openLightbox()");
+      vidPhoto.setAttribute("alt", title + ", closeup view");
+      vidPhoto.setAttribute("role", "link");
+      vidPhoto.setAttribute("tabindex", 0);
       figureGalery.appendChild(vidPhoto);
     }
 
@@ -85,13 +93,18 @@ function galeryFactory(data) {
       const imgPhotoLightbox = document.createElement("img");
       imgPhotoLightbox.setAttribute("src", srcMedia);
       imgPhotoLightbox.classList.add("lightbox-modal-media");
+      imgPhotoLightbox.setAttribute("alt", "");
+      imgPhotoLightbox.setAttribute("tabindex", "0");
       slideMedia.appendChild(imgPhotoLightbox);
     } else {
       const vidPhotoLightbox = document.createElement("video");
-      vidPhotoLightbox.setAttribute("type", "video/mp4");
+      vidPhotoLightbox.setAttribute("controls", "");
       vidPhotoLightbox.setAttribute("src", srcMedia);
+      vidPhotoLightbox.setAttribute("type", "video/mp4");
+      vidPhotoLightbox.setAttribute("preload", "metadata");
       vidPhotoLightbox.classList.add("lightbox-modal-media");
-      vidPhotoLightbox.setAttribute("controls", null);
+      vidPhotoLightbox.setAttribute("aria-label", title);
+      vidPhotoLightbox.setAttribute("tabindex", "0");
       slideMedia.appendChild(vidPhotoLightbox);
     }
 

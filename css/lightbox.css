@@ -15,7 +15,6 @@
 #lightbox-container {
   background-color: white;
   height: 100vh;
-
   position: relative;
   display: flex;
   align-items: center;
@@ -30,7 +29,7 @@
 
 .slides-container {
   z-index: 3;
-  width: 10%;
+  width: 100%;
   float: left;
   display: flex;
   justify-content: center;
@@ -66,20 +65,27 @@
   position: absolute;
   top: 25px;
   right: 50px;
-  font-size: 62px;
+  color: #901c1c;
+  font-family: "DM Sans", sans-serif;
+  font-size: 58px;
   font-style: normal;
   cursor: pointer;
+  border: none;
+  background: none;
 }
 
 /* -------------------- boutons PREV et NEXT de la ligthbox -------------------- */
 #prev,
 #next {
-  font-size: 80px;
+  font-size: 70px;
   cursor: pointer;
   max-height: 680px;
-  font-weight: 900;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 200;
   color: #901c1c;
   position: absolute;
+  border: none;
+  background: none;
 }
 
 /* -------------------- Position des boutons PREV et NEXT de la ligthbox -------------------- */

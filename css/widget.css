@@ -1,0 +1,24 @@
+.widget aside {
+  position: fixed;
+  bottom: 0px;
+  left: 73%;
+  background-color: #db8876;
+  width: 376px;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px 5px 0 0;
+  font-size: 24px;
+  font-weight: 500;
+  /* transform: translateY(50px); */
+  animation-name: slideIn;
+  animation-delay: 1.75s;
+  animation-duration: 0.85s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  z-index: 2;
+  box-shadow: 0 1px 1px rgb(0 0 0 / 12%), 0 2px 2px rgb(0 0 0 / 12%),
+    0 4px 4px rgb(0 0 0 / 12%), 0 8px 8px rgb(0 0 0 / 12%),
+    0 16px 16px rgb(0 0 0 / 12%);
+}

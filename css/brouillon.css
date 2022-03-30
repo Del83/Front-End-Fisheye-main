@@ -1,0 +1,92 @@
+/* LIGHTBOX */
+
+#lightbox {
+  color: #901c1c;
+  overflow: hidden;
+  display: none;
+}
+
+#lightbox-container {
+  width: 10vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.slides-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  background-color: white;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100vw;
+  height: 100vh;
+}
+
+#lightbox-icon-close {
+  position: absolute;
+  top: 25px;
+  right: 50px;
+  font-size: 62px;
+  font-style: normal;
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 80px;
+  cursor: pointer;
+  max-height: 680px;
+  font-weight: 900;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+}
+
+.mySlides {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  margin-bottom: 10px;
+}
+
+.slide-media {
+  display: flex;
+  justify-content: center;
+  height: 650px;
+  position: relative;
+}
+
+.lightbox-modal-media {
+  object-fit: contain;
+  border-radius: 5px;
+  max-height: 650px;
+}
+
+#title-photo {
+  font-size: 24px;
+  padding-top: 15px;
+  margin: 0px;
+}
+
+/* VOIR UTILITE */
+img.media-figure {
+  transition: 0.3s;
+}
+
+#expandedImg {
+  object-fit: contain;
+  border-radius: 5px;
+  max-height: 800px;
+  max-width: 900px;
+  z-index: 4;
+}
