@@ -28,11 +28,11 @@
 }
 
 .slides-container {
-  z-index: 3;
-  width: 100%;
-  float: left;
   display: flex;
   justify-content: center;
+  width: 100%;
+  float: left;
+  z-index: 3;
 }
 
 .slides {
@@ -48,53 +48,52 @@
 }
 
 .lightbox-modal-media {
-  object-fit: contain;
-  border-radius: 5px;
-  max-height: 650px;
+  max-height: 40em;
   max-width: 100%;
+  border-radius: 0.3em;
+  object-fit: contain;    
 }
 
 #title-photo {
-  font-size: 24px;
-  padding-top: 15px;
-  margin: 0px;
+  font-size: 1.5em;
+  margin: 0em;  
+  padding-top: 1em;
 }
 
 /* -------------------- boutons CLOSE de la ligthbox -------------------- */
 #lightbox-icon-close {
   position: absolute;
-  top: 25px;
-  right: 50px;
+  top: 0.5em;
+  right: 2em;
   color: #901c1c;
-  font-family: "DM Sans", sans-serif;
-  font-size: 58px;
-  font-style: normal;
-  cursor: pointer;
-  border: none;
   background: none;
+  font-family: "DM Sans", sans-serif;
+  font-size: 4.1em;
+  font-style: normal;
+  border: none;
+  cursor: pointer;
 }
 
 /* -------------------- boutons PREV et NEXT de la ligthbox -------------------- */
 #prev,
 #next {
-  font-size: 70px;
-  cursor: pointer;
-  max-height: 680px;
-  font-family: "DM Sans", sans-serif;
-  font-weight: 200;
-  color: #901c1c;
   position: absolute;
-  border: none;
+  top: 50%;  
+  color: #901c1c;  
   background: none;
+  font-family: "DM Sans", sans-serif;  
+  font-size: 4.1em;
+  font-weight: 200;
+  max-height: 42.5em;
+  border: none;
+  cursor: pointer;
 }
 
 /* -------------------- Position des boutons PREV et NEXT de la ligthbox -------------------- */
 #prev {
-  top: 50%;
-  left: 50px;
+  left: 2em;
 }
 
 #next {
-  top: 50%;
-  right: 50px;
+  right: 2em;
 }

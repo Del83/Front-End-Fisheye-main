@@ -1,9 +1,8 @@
-/** Eléments du DOM */
-const listboxContainer = document.getElementById("listbox");
+/** ---------- Eléments du DOM ---------- */
 const selectElt = document.querySelector("select");
 const listboxCustom = document.querySelector(".listbox-custom");
 
-/** Création de la nouvelle listbox */
+/** ---------- Création de la nouvelle listbox ---------- */
 const listboxCustomtNew = document.createElement("div");
 listboxCustomtNew.classList.add("listbox-custom-new");
 listboxCustomtNew.setAttribute("role", "button");
@@ -14,7 +13,7 @@ listboxCustomtNew.innerHTML =
   selectElt.options[selectElt.selectedIndex].innerHTML;
 listboxCustom.appendChild(listboxCustomtNew);
 
-/** Création de la liste déroulante */
+/** ---------- Création de la liste déroulante ---------- */
 const newMenu = document.createElement("div");
 newMenu.classList.add("select-items", "select-hide");
 newMenu.setAttribute("id", "listbox-select-items");
@@ -22,7 +21,7 @@ newMenu.setAttribute("aria-haspopup", "listbox");
 newMenu.setAttribute("aria-expanded", "true");
 newMenu.setAttribute("tabindex", "0");
 
-/** Création de la listbox avec les options du select */
+/** ---------- Création de la listbox avec les options du select ---------- */
 for (let option of selectElt.options) {
   const newOption = document.createElement("div");
   newOption.setAttribute("role", "listbox");
@@ -31,7 +30,7 @@ for (let option of selectElt.options) {
   newOption.setAttribute("tabindex", "0");
   newOption.innerHTML = option.innerHTML;
 
-  /** Ecoute les options et à chaque clic modifie l'option de tri */
+  /** ---------- Ecoute les options et à chaque clic modifie l'option de tri ---------- */
   newOption.addEventListener("click", function () {
     const changeOption = () => {
       for (let option of selectElt.options) {
@@ -40,12 +39,12 @@ for (let option of selectElt.options) {
           listboxCustomtNew.innerHTML = this.innerHTML;
         }
       }
-      listboxCustomtNew.click(); // on simule un clic sur "listboxCustomtNew" (pour fermer la liste)
+      listboxCustomtNew.click(); /** on simule un clic sur "listboxCustomtNew" (pour fermer la liste) */
     };
     changeOption();
   });
 
-  /** Ecoute les options et à chaque pression de la touche ENTER modifie l'option de tri */
+  /** ---------- Ecoute les options et à chaque pression de la touche ENTER modifie l'option de tri ---------- */
   newOption.addEventListener("keydown", function (e) {
     if (e.key === "Enter") {
       const changeOption = () => {
@@ -61,25 +60,25 @@ for (let option of selectElt.options) {
     }
   });
 
-  /** On rattache les options à la nouvelle listbox */
+  /** ---------- On rattache les options à la nouvelle listbox ---------- */
   newMenu.appendChild(newOption);
 }
 
-/** On rattache la liste déroulante à la listbox */
+/** ---------- On rattache la liste déroulante à la listbox ---------- */
 listboxCustom.appendChild(newMenu);
 
-/** Ecoute les options et à chaque pression de la touche ENTER modifie l'option de tri */
+/** ---------- Ecoute les options et à chaque pression de la touche ENTER modifie l'option de tri ---------- */
 listboxCustomtNew.addEventListener("click", function (e) {
-  // on empèche la propagation du clic
+  /** On empèche la propagation du clic */
   e.stopPropagation();
-  // on retire le "select-hide" de notre liste déroulante
+  /** On retire le "select-hide" de notre liste déroulante */
   this.nextSibling.classList.toggle("select-hide"); // toggle = recherche la chaine de caractère et si présente, il retire)
-  // Ajout de la class "active" sur l'option selectionnée
+  /** Ajoute la class "active" sur l'option selectionnée */
   this.classList.toggle("active");
   photographGaleryDisplay();
 });
 
-/** Ecoute les options et à chaque pression de la touche ENTER modifie l'option de tri */
+/** ---------- Ecoute les options et à chaque pression de la touche ENTER modifie l'option de tri ---------- */
 listboxCustomtNew.addEventListener("keydown", function (e) {
   if (e.key === "Enter") {
     e.stopPropagation();
@@ -89,7 +88,7 @@ listboxCustomtNew.addEventListener("keydown", function (e) {
   }
 });
 
-/** Tri la galerie des médias par titre */
+/** ---------- Tri la galerie des médias par titre ---------- */
 function sortMediaByTitle(a, b) {
   if (a.title.toLowerCase() < b.title.toLowerCase()) {
     return -1;
@@ -100,12 +99,12 @@ function sortMediaByTitle(a, b) {
   return 0;
 }
 
-/** Tri la galerie des médias par le nombre de like */
+/** ---------- Tri la galerie des médias par le nombre de like ---------- */
 function sortMediaByLikes(a, b) {
   return b.likes - a.likes;
 }
 
-/** Tri la galerie des médias par leur date */
+/** ---------- Tri la galerie des médias par leur date ---------- */
 function sortMediaByDate(a, b) {
   if (a.date > b.date) {
     return -1;
@@ -115,7 +114,3 @@ function sortMediaByDate(a, b) {
   }
   return 0;
 }
-
-// selection enfant direct de select-items ??????? ?????
-//const selectItem = document.querySelector("#listbox-select-items");
-//console.log(selectItem);

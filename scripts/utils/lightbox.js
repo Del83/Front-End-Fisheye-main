@@ -1,10 +1,9 @@
-/** Eléments du DOM */
+/** ---------- Eléments du DOM ---------- */
 const lightboxDisplay = document.getElementById("lightbox");
-const btnCloseLightbox = document.getElementById("lightbox-icon-close");
 const prevNavigation = document.getElementById("prev");
 const nextNavigation = document.getElementById("next");
 
-/** Ouvre le carousel */
+/** ---------- Ouvre le carousel ---------- */
 function openLightbox() {
   lightboxDisplay.style.display = "block";
   main.setAttribute("aria-hidden", true);
@@ -12,7 +11,7 @@ function openLightbox() {
   prevNavigation.focus();
 }
 
-/** ferme le carousel */
+/** ---------- Ferme le carousel ---------- */
 function closeLightbox() {
   lightboxDisplay.style.display = "none";
   main.setAttribute("aria-hidden", false);
@@ -20,7 +19,7 @@ function closeLightbox() {
   logo.focus();
 }
 
-/** Class du carousel */
+/** ---------- CREATION DE LA CLASSE DU CAROUSEL ---------- */
 class Lightbox {
   constructor(currentSlide, element, options = {}) {
     this.element = element;
@@ -37,7 +36,7 @@ class Lightbox {
     this.navigation();
   }
 
-  /** Navigation dans le carousel */
+  /** ---------- Navigation dans le carousel ---------- */
   navigation() {
     prevNavigation.addEventListener(
       "click",
@@ -45,7 +44,7 @@ class Lightbox {
     ); /** Création d'une nouvelle fonction qui a pour contexte "this" de la valeur passée */
     nextNavigation.addEventListener("click", this.next.bind(this));
 
-    /** Navigation avec le clavier */
+    /** ---------- Navigation avec le clavier ---------- */
     lightboxDisplay.addEventListener("keydown", (e) => {
       if (e.key === "ArrowLeft") {
         this.prev();
@@ -59,20 +58,20 @@ class Lightbox {
     });
   }
 
-  /** Afficher le média suivant */
+  /** ---------- Afficher le média suivant ---------- */
   next() {
     this.goToSlide(this.currentSlide + this.options.slidesToScroll);
   }
 
-  /** Afficher le média précédent */
+  /** ---------- Afficher le média précédent ---------- */
   prev() {
     this.goToSlide(this.currentSlide - this.options.slidesToScroll);
   }
 
-  /** Afficher le média selon index */
+  /** ---------- Afficher le média selon index ---------- */
   goToSlide(index) {
     if (index < 0) {
-      index = this.element - this.options.slidesVisible; /**  */
+      index = this.element - this.options.slidesVisible;
     } else if (index > this.element - this.options.slidesVisible) {
       index = 0;
     }

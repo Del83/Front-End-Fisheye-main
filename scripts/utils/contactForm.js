@@ -1,4 +1,4 @@
-/** Eléments du DOM */
+/** ---------- Eléments du DOM ---------- */
 const main = document.getElementById("main");
 const form = document.getElementById("form");
 const modal = document.getElementById("modal");
@@ -9,9 +9,10 @@ const focusFirstName = document.getElementById("contact-first-name");
 const logo = document.getElementById("logo");
 const closeBtnModal = document.getElementById("close-modal");
 
+/** ---------- Variables ---------- */
 let first, last, email, message;
 
-/** Ouvre le formulaire de contact */
+/** ---------- Ouvre le formulaire de contact ---------- */
 function openModal() {
   modal.style.display = "block";
   main.setAttribute("aria-hidden", true);
@@ -19,7 +20,7 @@ function openModal() {
   focusFirstName.focus();
 }
 
-/** Ferme le formulaire de contact */
+/** ---------- Ferme le formulaire de contact ---------- */
 function closeModal() {
   modal.style.display = "none";
   main.setAttribute("aria-hidden", false);
@@ -27,7 +28,7 @@ function closeModal() {
   logo.focus();
 }
 
-/** Navigation avec le clavier */
+/** ---------- Navigation avec le clavier ---------- */
 modal.addEventListener("keydown", function (e) {
   e.stopPropagation();
   if (e.key === "Escape") {
@@ -38,7 +39,7 @@ modal.addEventListener("keydown", function (e) {
   }
 });
 
-/** Affichage du message d'erreur si le champ du formulaire est mal ou pas rempli */
+/** ---------- Affichage du message d'erreur si le champ du formulaire est mal ou pas rempli ---------- */
 const errorDisplay = (tag, message, valid) => {
   const container = document.querySelector("." + tag + "-container");
   const span = document.querySelector("." + tag + "-container > span");
@@ -51,7 +52,7 @@ const errorDisplay = (tag, message, valid) => {
   }
 };
 
-/** Contrôle si le champ prénom est valide selon critère */
+/** ---------- Contrôle si le champ prénom est valide selon critère ---------- */
 const firstNameChecker = (value) => {
   if (value.length > 0 && (value.length < 3 || value.length > 20)) {
     errorDisplay("first", "Le prénom doit contenir entre 3 et 20 caractères");
@@ -68,7 +69,7 @@ const firstNameChecker = (value) => {
   }
 };
 
-/** Contrôle si le champ nom est valide selon critère */
+/** ---------- Contrôle si le champ nom est valide selon critère ---------- */
 const lastNameChecker = (value) => {
   if (value.length > 0 && (value.length < 3 || value.length > 20)) {
     errorDisplay("last", "Le nom doit contenir entre 3 et 20 caractères");
@@ -82,7 +83,7 @@ const lastNameChecker = (value) => {
   }
 };
 
-/** Contrôle si le champ email est valide selon critère */
+/** ---------- Contrôle si le champ email est valide selon critère ---------- */
 const emailChecker = (value) => {
   if (!value.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/i)) {
     errorDisplay("email", "Le mail n'est pas valide");
@@ -93,7 +94,7 @@ const emailChecker = (value) => {
   }
 };
 
-/** Contrôle si le champ message est valide selon critère */
+/** ---------- Contrôle si le champ message est valide selon critère ---------- */
 const messageChecker = (value) => {
   if (value.length > 0 && (value.length < 3 || value.length > 120)) {
     errorDisplay(
@@ -107,10 +108,9 @@ const messageChecker = (value) => {
   }
 };
 
-/** Ecoute des inputs et contrôle leur validité selon les critères définis plus haut */
+/** ---------- Ecoute des inputs et contrôle leur validité selon les critères définis plus haut ---------- */
 inputs.forEach((input) => {
   input.addEventListener("input", (e) => {
-    console.log(e.target.id);
     switch (
       e.target.id /** recupère l'id html de chaque input du formulaire */
     ) {
@@ -134,7 +134,7 @@ inputs.forEach((input) => {
   });
 });
 
-/** Validation du formulaire */
+/** ---------- VALIDATION DU FORMULAIRE ---------- */
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   /** Si les conditions pour la validation du formulaire sont réunies, alors : */

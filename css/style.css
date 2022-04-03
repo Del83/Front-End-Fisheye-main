@@ -8,7 +8,15 @@
   0% {
     opacity: 0;
   }
-
+  30% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  80% {
+    opacity: 0.8;
+  }
   100% {
     opacity: 1;
   }
@@ -18,17 +26,18 @@
   /* Keyframe pour l'animation au moment du chargement des médias de la page photographer.html */
   0% {
     opacity: 0;
-    transform: translateY(500px);
+    transform: translateY(31.25em);
   }
   50% {
     opacity: 1;
-    transform: translateY(-50px);
+    transform: translateY(-3.125em);
   }
   100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
+
 
 /** -------------------- Général -------------------- */
 a {
@@ -42,14 +51,14 @@ body {
 
 header {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 90px;
+  height: 5.625em;
 }
 
 header h1 {
-  margin-right: 100px;
+  font-weight: 500;
+  margin-right: 3em;
 }
 
 h1 {
@@ -57,24 +66,23 @@ h1 {
 }
 
 .logo {
-  height: 50px;
-  margin-left: 100px;
+  height: 3.5em;
+  margin-left: 5.25em;
 }
 
 /** -------------------- Article par photographe de la page index.html -------------------- */
 .photographer_section {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 70px;
-  margin-top: 100px;
+  gap: 5.62em;
+  margin-top: 6.25em;
 }
 
 .photographer_section article {
   display: flex;
-  align-items: center;
   flex-direction: column;
   animation-name: fadeIn;
-  animation-duration: 0.8s;
+  animation-duration: 1.5s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
 }
@@ -93,32 +101,35 @@ h1 {
 
 .photographer_section article h2 {
   color: #d3573c;
-  font-size: 36px;
-  margin: 10px 0 0 0;
+  font-size: 2.25em;
+  font-weight: 500;
+  margin: 0.625em 0 0 0;
 }
 
 .photographer_section article h3 {
-  font-size: 0.85em;
   color: #901c1c;
-  margin: 2px;
+  font-size: 0.85em;
+  margin: 0.125em;
 }
 
 .photographer_section article h4 {
-  font-size: 0.75em;
   color: #000;
-  margin: 2px;
+  font-size: 0.75em;
+  font-weight: 600;
+  margin: 0.125em;
 }
 
 .photographer_section article h5 {
-  font-size: 0.7em;
   color: #525252;
-  margin: 2px;
+  font-size: 0.7em;
+  font-weight: 100;
+  margin: 0.125em;
 }
 
 .photographer_section article img {
-  height: 200px;
-  width: 200px;
+  height: 12.5em;
+  width: 12.5em;
   border-radius: 50%;
-  box-shadow: 4px 4px 8px #c4c4c4;
+  box-shadow: 0.25em 0.25em 0.5em #c4c4c4;
   object-fit: cover;
 }

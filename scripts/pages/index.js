@@ -1,28 +1,46 @@
-/** FETCH DATA pour récupérer les infos des photographes du fichier JSON */
+/** ---------- FETCH DATA pour récupérer les infos des photographes du fichier JSON ---------- */
 async function getPhotographers() {
-  await fetch("./data/photographers.json")
-    .then((res) => res.json())
-    .then((data) => (photographers = data.photographers));
+  await fetch(
+    "./data/photographers.json"
+  ) /** Attendre la récupération des données JSON */
+    .then((res) =>
+      res.json()
+    ) /** Alors ce résultat est transformé en DATA (objet javascript) */
+    .then(
+      (data) => (photographers = data.photographers)
+    ); /** Récupération dans DATA des données photographers */
   return {
-    photographers: [...photographers],
+    photographers: [
+      ...photographers,
+    ] /** On retourne un tableau avec les données des photographes */,
   };
 }
 
-/** Affichage du profil des photographes sur la page index.html */
+/** ---------- Affichage du profil des photographes sur la page index.html ---------- */
 function displayData(photographers) {
   const photographersSection = document.querySelector(".photographer_section");
   photographers.forEach((photographer) => {
-    const photographerModel = photographerFactory(photographer);
-    const userCardDOM = photographerModel.getUserCardDOM();
-    photographersSection.appendChild(userCardDOM);
+    /** Boucle dans les photographes */
+    const photographerModel =
+      photographerFactory(
+        photographer
+      ); /** Récupération des données du photographe */
+    const userCardDOM =
+      photographerModel.getUserCardDOM(); /** Création de la carte du photographe avec les données du photographe */
+    photographersSection.appendChild(
+      userCardDOM
+    ); /** On rattache cet élément dans le DOM */
   });
 }
 
-/** Attendre le chargement des infos des photographes pour afficher le profil des photographes sur la page index.html */
+/** ---------- Initialisation pour l'affichage des données de la page index.html ---------- */
 async function initIndex() {
-  const { photographers } = await getPhotographers();
-  displayData(photographers);
+  const { photographers } =
+    await getPhotographers(); /** Récupère les données des photographes avant affichage */
+  displayData(
+    photographers
+  ); /** Appel de la fonction d'affichage des données */
 }
 
-/** Appel de la fonction pour l'affichage du profil des photographes */
+/** ---------- Appel de la fonction pour l'affichage des données de la page index.html ---------- */
 initIndex();

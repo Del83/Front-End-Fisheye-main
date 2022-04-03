@@ -2,46 +2,46 @@
 .photograph-header {
   background-color: #fafafa;
   margin: 0 5% 0 5%;
-  padding: 30px;
+  padding: 2.4em;
 }
 
 .photograph-header section {
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-between;
 }
 
 .photograph-header section h1 {
   color: #d3573c;
   font-size: 2.625em;
   font-weight: normal;
-  margin-bottom: 0px;
-  margin-top: 0px;
+  margin-top: 0em;
+  margin-bottom: 0em;
 }
 
 .photograph-header section h2 {
   color: #901c1c;
-  font-size: 24px;
+  font-size: 1.5em;
   font-weight: normal;
-  margin: 0px;
+  margin: 0em;
 }
 
 .photograph-header section h3 {
   color: #000;
-  font-size: 18px;
+  font-size: 1em;
   font-weight: normal;
 }
 
 .photograph-header section h6 {
   color: #d3573c;
-  font-size: 36px;
-  margin: 10px 0 0 0;
+  font-size: 2.25em;
+  margin: 0.6em 0 0 0;
 }
 .photograph-header section img {
-  height: 200px;
-  width: 200px;
+  height: 12.5em;
+  width: 12.5em;
   border-radius: 50%;
-  box-shadow: 4px 4px 8px #c4c4c4;
+  box-shadow: 0.25em 0.25em 0.5em #c4c4c4;
   object-fit: cover;
 }
 
@@ -50,16 +50,18 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 30px 100px 40px 100px;
+  margin: 2em 5% 2.5em 5%;
 }
 
 .photograph-galery figure {
   cursor: pointer;
   transform: scale(0);
   animation-name: slideUp;
-  animation-duration: 0.5s;
-  animation-timing-function: ease-out;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
+  margin-right: 0em;
+  margin-left: 0em;
 }
 
 .photograph-galery figure:nth-child(1n) {
@@ -71,45 +73,45 @@
 }
 
 .photograph-galery figure img {
-  height: 300px;
-  width: 350px;
+  height: 19em;
+  width: 22em;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 0.3em;
   object-position: center top;
-  transform: translateY(0px) scale(1);
+  transform: translateY(0em) scale(1);
   transition: all 0.25s ease;
-  box-shadow: 0 3px 3px rgb(0 0 0 / 10%);
+  box-shadow: 0 0.2em 0.2em rgb(0 0 0 / 10%);
 }
 
 .photograph-galery figure img:hover {
-  transform: translateY(-2px) scale(1.02);
+  transform: translateY(-0.13em) scale(1.02);
 }
 
 .photograph-galery figure video {
-  height: 300px;
-  width: 350px;
+  height: 19em;
+  width: 22em;
   object-fit: cover;
-  border-radius: 5px;
+  border-radius: 0.3em;
   object-position: center top;
-  transform: translateY(0px) scale(1);
+  transform: translateY(0em) scale(1);
   transition: all 0.25s ease;
-  box-shadow: 0 3px 3px rgb(0 0 0 / 10%);
+  box-shadow: 0 0.2em 0.2em rgb(0 0 0 / 10%);
   max-width: 100%;
 }
 
 .photograph-galery figcaption {
   display: flex;
   justify-content: space-between;
-  max-width: 350px;
+  max-width: 22em;
   white-space: nowrap;
 }
 
 .photograph-galery figure span {
   color: #911c1c;
-  font-size: 23px;
+  font-size: 1.4em;
   font-weight: normal;
-  margin-bottom: 30px;
-  margin-top: 0px;
+  margin-bottom: 2em;
+  margin-top: 0em;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -118,23 +120,23 @@
 input[type="checkbox"].like-input {
   border: 0;
   clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
+  height: 0.1em;
+  margin: -0.1em;
   overflow: hidden;
   padding: 0;
   position: absolute;
-  width: 1px;
+  width: 0.1em;
 }
 
 input[type="checkbox"].like-input:focus {
-  border: 2px solid blue;
+  border: 0.125em solid blue;
   clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
+  height: 0.1em;
+  margin: -0.1em;
   overflow: hidden;
   padding: 0;
   position: absolute;
-  width: 1px;
+  width: 0.1em;
 }
 
 input[type="checkbox"].like-input + label::before {
@@ -149,31 +151,30 @@ input[type="checkbox"].like-input:checked + label::before {
 }
 
 .like-label {
+  color: #901c1c;
+  font-size: 1.5em;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  color: #901c1c;
-  font-size: 24px;
 }
 
 /** -------------------- Listbox - tri des médias--------------------*/
 #listbox {
   display: flex;
-  height: 80px;
-  padding: 10px 0 0 120px;
+  padding: 0.8em 0 0 5%;
 }
 
 #listbox-label {
-  font-weight: 500;
-  font-size: 20px;
+  font-weight: 800;
+  font-size: 1.25em;
   display: flex;
   align-items: center;
-  padding-right: 10px;
+  padding-right: 0.6em;
 }
 
 .listbox-custom {
   color: white;
-  font-size: 20px;
+  font-size: 1.25em;
   font-weight: 800;
 }
 
@@ -185,18 +186,18 @@ input[type="checkbox"].like-input:checked + label::before {
   display: flex;
   align-items: center;
   background-color: #901c1c;
-  border-radius: 5px;
-  min-height: 69px;
-  width: 170px;
+  border-radius: 0.3em;
+  height: 3em;
+  width: 8em;
   cursor: pointer;
-  padding-left: 10px;
+  padding-left: 0.6em;
   position: relative;
 }
 
 .select-items {
   background-color: #901c1c;
-  border-radius: 5px;
-  position: relative;
+  border-radius: 0.3em;
+  position: absolute;
   z-index: 5;
   cursor: pointer;
 }
@@ -204,10 +205,10 @@ input[type="checkbox"].like-input:checked + label::before {
 .select-items div {
   display: flex;
   align-items: center;
-  min-height: 80px;
-  width: 170px;
+  min-height: 3em;
+  width: 8em;
   border-top: solid #fafafa;
-  padding-left: 25px;
+  padding-left: 1.5em;
   cursor: pointer;
 }
 
@@ -223,7 +224,7 @@ input[type="checkbox"].like-input:checked + label::before {
   font-family: "Font Awesome 5 Free";
   content: "\f078";
   position: absolute;
-  right: 8px;
+  right: 0.5em;
 }
 
 .listbox-custom-new.active::after {
@@ -234,25 +235,19 @@ input[type="checkbox"].like-input:checked + label::before {
 /** -------------------- WIDGET de la page photographer.html -------------------- */
 .widget aside {
   position: fixed;
-  bottom: 0px;
+  bottom: 0em;
   left: 73%;
   background-color: #db8876;
-  width: 376px;
-  height: 50px;
+  width: 15em;
+  height: 3em;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  border-radius: 5px 5px 0 0;
+  border-radius: 0.3em 0.3em 0 0;
   font-size: 24px;
   font-weight: 500;
-  /* transform: translateY(50px); */
-  animation-name: slideIn;
-  animation-delay: 1.75s;
-  animation-duration: 0.85s;
-  animation-timing-function: ease-in-out;
-  animation-fill-mode: forwards;
   z-index: 2;
-  box-shadow: 0 1px 1px rgb(0 0 0 / 12%), 0 2px 2px rgb(0 0 0 / 12%),
-    0 4px 4px rgb(0 0 0 / 12%), 0 8px 8px rgb(0 0 0 / 12%),
-    0 16px 16px rgb(0 0 0 / 12%);
+  box-shadow: 0 0.1em 0.1em rgb(0 0 0 / 12%), 0 0.15em 0.15em rgb(0 0 0 / 12%),
+    0 0.25em 0.25em rgb(0 0 0 / 12%), 0 0.5em 0.5em rgb(0 0 0 / 12%),
+    0 1em 1em rgb(0 0 0 / 12%);
 }
