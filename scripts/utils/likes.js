@@ -67,7 +67,7 @@ async function initLike() {
   await initGalery(); /** Attend l'initialisation de la galerie */
   getLikes(); /** Appel de la fonction  qui récupère les données concernant les likes */
   return (
-    displayLikes(), addClic()
+    addClic(), displayLikes()
   ); /** Renvoi les fonctions d'affichage du total des likes et la gestion des likes */
 }
 

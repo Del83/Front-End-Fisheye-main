@@ -76,6 +76,7 @@ listboxCustomtNew.addEventListener("click", function (e) {
   /** Ajoute la class "active" sur l'option selectionnée */
   this.classList.toggle("active");
   photographGaleryDisplay();
+  initLike();
 });
 
 /** ---------- Ecoute les options et à chaque pression de la touche ENTER modifie l'option de tri ---------- */

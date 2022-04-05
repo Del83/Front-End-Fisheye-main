@@ -1,6 +1,7 @@
 function photographerFactory(data) {
   const { name, id, city, country, tagline, price, portrait } = data;
 
+  console.log(data);
   const picture = `./assets/photographers/${portrait}`;
 
   /** ---------- CREATION DU GABARIT DE LA PAGE INDEX.HTML - PRESENTATION DES PHOTOGRAPHES ---------- */
